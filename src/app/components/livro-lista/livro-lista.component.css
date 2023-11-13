@@ -1,0 +1,12 @@
+.selecionado {
+  font-weight: bold;
+}
+
+li {
+  cursor: pointer;
+  font-size: 12pt;
+}
+
+li:hover {
+  font-weight: bold;
+}

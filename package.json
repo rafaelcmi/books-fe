@@ -1,5 +1,5 @@
 {
-  "name": "books-fe",
+  "name": "books-crud-fe",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",

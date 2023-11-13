@@ -1,10 +1,13 @@
-export class Livro {
-  codigo!: number;
-  titulo!: string;
-  edicao!: number;
-  editora!: string;
-  anoPublicacao!: string;
-  valor!: number;
+import { Assunto } from "./assunto";
+import { Autor } from "./autor";
 
-  constructor() {}
+export interface Livro {
+  codigo?: number;
+  titulo: string;
+  editora: string;
+  edicao: number;
+  anoPublicacao: string;
+  valor: number;
+  autor: Autor[];
+  assunto: Assunto[];
 }

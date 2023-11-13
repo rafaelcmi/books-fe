@@ -1,0 +1,49 @@
+/* tela-entrada.component.css */
+.entrada-container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.botoes-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+button {
+  padding: 15px 30px;
+  margin: 2px 2px;
+  font-size: 1.2em;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cadastrar-livro {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.cadastrar-assunto {
+  background-color: #2ecc71;
+  color: #fff;
+}
+
+.cadastrar-autor {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+button:hover {
+  background-color: darken(darken(orange, 5%), 5%);
+}
+
+button:active {
+  transform: scale(0.95);
+}

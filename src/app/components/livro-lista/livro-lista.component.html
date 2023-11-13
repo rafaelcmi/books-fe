@@ -1,1 +1,9 @@
-<p>livro-lista works!</p>
+<h1>Livros:</h1>
+<hr>
+<ul>
+  <li *ngFor="let livro of livros">
+    {{ livro.titulo }} - {{ livro.valor | currency: 'R$' }}
+    <button (click)="excluir(livro)">Excluir</button>
+    <button (click)="editar(livro)">Editar</button>
+  </li>
+</ul>
