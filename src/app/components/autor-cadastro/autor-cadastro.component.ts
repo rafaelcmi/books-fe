@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Autor } from 'src/app/models/autor';
 import { AutorService } from 'src/app/services/autor.service';
 
@@ -12,22 +12,58 @@ import { AutorService } from 'src/app/services/autor.service';
   styleUrls: ['./autor-cadastro.component.css']
 })
 export class AutorCadastroComponent implements OnInit {
-  novoAutor: Autor = {
-    codigo: 0,
-    nome: '',
-  };
+  autorForm!: FormGroup;
+  public autorId!: string | null;
 
-  constructor(private autorService: AutorService,
-              private router: Router){}
+  constructor(private fb: FormBuilder,
+              private route: ActivatedRoute,
+              private router: Router,
+              private service: AutorService){
+
+
+    if (this.route.snapshot.paramMap) {
+      if (this.route.snapshot.paramMap.get('id') != "new") {
+        this.autorId = this.route.snapshot.paramMap.get('id');
+        this.recuperarAutor(this.autorId);
+      }
+    }
+  }
 
   ngOnInit(): void {
-
+    this.initForm();
   }
 
-  cadastrarAutor() {
-    this.autorService.cadastrarAutor(this.novoAutor).subscribe((autor: Autor) => {
-      alert('Autor cadastrado com sucesso: ' + autor.nome);
+  initForm() {
+    this.autorForm = this.fb.group({
+      codigo: [''],
+      nome: ['', Validators.required]
     });
+    this.autorForm.get('codigo')?.disable();
   }
 
+  async recuperarAutor(id: string | null) {
+    if (this.autorId) {
+      await this.service.obterAutor(Number(id)).subscribe((autor: Autor) => {
+        this.autorForm.get('codigo')?.setValue(autor.codigo);
+        this.autorForm.get('nome')?.setValue(autor.nome);
+      })
+    }
+  }
+
+  salvarAutor(){
+    if (this.autorForm.valid) {
+      const autor: Autor = this.autorForm.value;
+      if (autor.codigo) {
+        this.service.atualizarAutor(autor.codigo, autor).subscribe((autorCadastrado) => {
+          this.router.navigateByUrl("/autor-lista");
+          alert('Autor "' + autorCadastrado.nome + '" cadastrado com sucesso!');
+        });
+      } else {
+        this.service.cadastrarAutor(autor).subscribe((autorAtualizado) => {
+          this.router.navigateByUrl("/autor-lista");
+          alert('Autor "' + autorAtualizado.nome + '" atualizado com sucesso!');
+        });
+      }
+    }
+  }
 }

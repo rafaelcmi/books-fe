@@ -1,6 +1,7 @@
 export interface Report {
   codigoAutor: number;
   autor: string;
-  titulo: string;
+  tituloLivro: string;
+  assunto: string;
 
 }

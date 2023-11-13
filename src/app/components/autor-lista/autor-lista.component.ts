@@ -36,6 +36,6 @@ export class AutorListaComponent implements OnInit {
   }
 
   editar(autor: Autor) {
-
+    this.router.navigateByUrl("/autor-cadastro/" + autor.codigo);
   }
 }

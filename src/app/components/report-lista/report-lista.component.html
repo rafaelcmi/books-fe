@@ -3,10 +3,8 @@
 <ul>
   <li *ngFor="let report of reports">
     Nome: {{ report.autor }}
-
-    <!-- {{ livro.titulo }} - {{ livro.valor | currency: 'R$' }}
-    <button (click)="excluir(livro)">Excluir</button>
-    <button (click)="editar(livro)">Editar</button> -->
+    Título: {{ report.tituloLivro }}
+    Assunto: {{ report.assunto }}
   </li>
 </ul>
 <button class="bto-voltar" routerLink="/">Voltar</button>
