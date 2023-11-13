@@ -1,5 +1,7 @@
 <h1>Livros:</h1>
 <hr>
+<button class="bto-cadastrar" routerLink="/livro-cadastro/new">Cadastrar</button>
+<hr>
 <ul>
   <li *ngFor="let livro of livros">
     {{ livro.titulo }} - {{ livro.valor | currency: 'R$' }}

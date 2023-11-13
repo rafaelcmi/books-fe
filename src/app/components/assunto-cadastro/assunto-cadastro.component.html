@@ -1,0 +1,19 @@
+<div>
+  <h2>Cadastro de Assunto</h2>
+
+  <form [formGroup]="assuntoForm" (ngSubmit)="salvarAssunto()">
+
+    <div *ngIf="assuntoId">
+      <label for="codigo">Codigo:</label>
+      <input type="text" id="codigo" formControlName="codigo" required>
+    </div>
+
+    <div>
+      <label for="descricao">Descrição:</label>
+      <input type="text" id="descricao" formControlName="descricao" required>
+    </div>
+
+    <button type="submit">Salvar Assunto</button>
+  </form>
+  <button class="bto-voltar" routerLink="/assunto-lista">Voltar</button>
+</div>

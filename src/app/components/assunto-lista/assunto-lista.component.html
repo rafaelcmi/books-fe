@@ -1,0 +1,12 @@
+<h1>Assunto:</h1>
+<hr>
+<button class="bto-cadastrar" routerLink="/assunto-cadastro/new">Cadastrar</button>
+<hr>
+<ul>
+  <li *ngFor="let assunto of assuntos">
+     Código: {{ assunto.codigo}} - Descrição: {{ assunto.descricao }}
+    <button (click)="excluir(assunto)">Excluir</button>
+    <button (click)="editar(assunto)">Editar</button>
+  </li>
+</ul>
+<button class="bto-voltar" routerLink="/">Voltar</button>

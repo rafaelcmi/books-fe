@@ -1,0 +1,19 @@
+<div>
+  <h2>Cadastro de Autor</h2>
+
+  <form (ngSubmit)="cadastrarAutor()">
+
+    <div ngIf="novoAutor.codigo?">
+      <label for="assunto">Codigo:</label>
+      <input type="text" id="codigo" [(ngModel)]="novoAutor.codigo" name="codigo" required>
+    </div>
+
+    <div>
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" [(ngModel)]="novoAutor.nome" name="nome" required>
+
+    </div>
+
+    <button type="submit">Cadastrar Autor</button>
+  </form>
+</div>
