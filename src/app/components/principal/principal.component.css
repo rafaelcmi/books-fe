@@ -40,6 +40,11 @@ button {
   color: #fff;
 }
 
+.cadastrar-relatorio {
+  background-color: #01ac09;
+  color: #fff;
+}
+
 button:hover {
   background-color: darken(darken(orange, 5%), 5%);
 }

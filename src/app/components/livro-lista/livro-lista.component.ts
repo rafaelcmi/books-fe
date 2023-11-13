@@ -25,13 +25,21 @@ export class LivroListaComponent implements OnInit {
               private router: Router){}
 
   ngOnInit(): void {
+    this.loadLivros();
+  }
+
+  loadLivros() {
     this.service.listar().subscribe(livros => {
       this.livros = livros;
     });
   }
 
   excluir(livro: Livro) {
-
+    if (livro.codigo) {
+      this.service.deletarLivro(livro.codigo).subscribe(() => {
+        this.loadLivros();
+      });
+    }
   }
 
   editar(livro: Livro) {

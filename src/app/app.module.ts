@@ -7,12 +7,16 @@ import { LivroListaComponent } from './components/livro-lista/livro-lista.compon
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { PrincipalComponent } from './components/principal/principal.component';
+import { LivroCadastroComponent } from './components/livro-cadastro/livro-cadastro.component';
+import { ReportListaComponent } from './components/report-lista/report-lista.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LivroListaComponent,
-    PrincipalComponent
+    PrincipalComponent,
+    LivroCadastroComponent,
+    ReportListaComponent
   ],
   imports: [
     BrowserModule,

@@ -10,3 +10,18 @@ li {
 li:hover {
   font-weight: bold;
 }
+
+button {
+  padding: 10px 20px;
+  margin: 2px 2px;
+  font-size: 1.2em;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.bto-voltar {
+  background-color: #3498db;
+  color: #fff;
+}
