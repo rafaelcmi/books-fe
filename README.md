@@ -1,27 +1,22 @@
-# BooksCrudFe
+# Cadastro de Livros
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.5.
+Este projeto foi gerado utilizando [Angular CLI](https://github.com/angular/angular-cli) version 16.1.5.
 
-## Development server
+## Banco
+Utilizado um banco MySQL 8.0.35
+As configurações de banco, estão no arquivo application.properties do back-end
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Back
+O Back-End foi desenvolvido em Java com Spring. Basta efetuar o clone do projeto "books-be" e depois rodar o comando abaixo, dentro do diretório do projeto:
+- mvn clean install
 
-## Code scaffolding
+Antes de inicializar a aplicação, abra o arquivo "scripts.sql" da pasta "resources" e execute o script no banco. Ele serve para criar view requisitada no desafio.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Front
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Efetue o clone do projeto "books-fe", entre no diretório do projeto e rode o comando `ng serve`. Depois disso, abra o browser de sua preferência e digite o seguinte endereço `http://localhost:4200/`. 
 
-## Running unit tests
+## Teste Unitários
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Foram criados alguns testes unitários para validação do crud de Livros no Back-End.
