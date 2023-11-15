@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Assunto } from 'src/app/models/assunto';
 import { AssuntoService } from 'src/app/services/assunto.service';
@@ -35,16 +35,20 @@ export class AssuntoCadastroComponent implements OnInit {
       codigo: [''],
       descricao: ['', Validators.required]
     });
-    this.assuntoForm.get('codigo')?.disable();
   }
 
-  async recuperarAssunto(id: string | null) {
+  recuperarAssunto(id: string | null) {
     if (this.assuntoId) {
-      await this.service.obterAssunto(Number(id)).subscribe((assunto: Assunto) => {
+      this.service.obterAssunto(Number(id)).subscribe((assunto: Assunto) => {
         this.assuntoForm.get('codigo')?.setValue(assunto.codigo);
         this.assuntoForm.get('descricao')?.setValue(assunto.descricao);
+        //this.assuntoForm.get('codigo')?.disable();
       })
     }
+  }
+
+  get codigo() {
+    return this.assuntoForm.get('codigo') as FormControl;
   }
 
   salvarAssunto(){
@@ -53,12 +57,12 @@ export class AssuntoCadastroComponent implements OnInit {
       if (assunto.codigo) {
         this.service.atualizarAssunto(assunto.codigo, assunto).subscribe((assuntoCadastrado) => {
           this.router.navigateByUrl("/assunto-lista");
-          alert('Assunto "' + assuntoCadastrado.descricao + '" cadastrado com sucesso!');
+          alert('Assunto "' + assuntoCadastrado.descricao + '" atualizado com sucesso!');
         });
       } else {
         this.service.cadastrarAssunto(assunto).subscribe((assuntoAtualizado) => {
           this.router.navigateByUrl("/assunto-lista");
-          alert('Assunto "' + assuntoAtualizado.descricao + '" atualizado com sucesso!');
+          alert('Assunto "' + assuntoAtualizado.descricao + '" cadastrado com sucesso!');
         });
       }
     }

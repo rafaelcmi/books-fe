@@ -24,13 +24,21 @@ export class AssuntoListaComponent implements OnInit {
     });
   }
 
-  excluir(assunto: Assunto) {
-    if (assunto.codigo) {
-      this.service.deletarAssunto(assunto.codigo).subscribe(() => {
-        this.loadAssuntos();
-      }, () => {
-        alert("Ocorreu um erro ao tentar remover o registro. Verifique se não existem dados vinculados a este assunto!");
-      });
+  confirmDelete(){
+
+  }
+
+  confirm(assunto: Assunto) {
+    const remove = window.confirm('Deseja realmente remover: ' + assunto.descricao + ' ?');
+
+    if (remove) {
+      if (assunto.codigo) {
+        this.service.deletarAssunto(assunto.codigo).subscribe(() => {
+          this.loadAssuntos();
+        }, () => {
+          alert("Ocorreu um erro ao tentar remover o registro. Verifique se não existem dados vinculados a este assunto!");
+        });
+      }
     }
   }
 

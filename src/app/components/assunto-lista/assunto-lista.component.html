@@ -5,7 +5,7 @@
 <ul>
   <li *ngFor="let assunto of assuntos">
      Código: {{ assunto.codigo}} - Descrição: {{ assunto.descricao }}
-    <button (click)="excluir(assunto)">Excluir</button>
+    <button (click)="confirm(assunto)">Excluir</button>
     <button (click)="editar(assunto)">Editar</button>
   </li>
 </ul>
