@@ -1,11 +1,11 @@
 <h1>Autores:</h1>
 <hr>
-<button class="bto-cadastrar" routerLink="/autor-cadastro/new">Cadastrar</button>
+<button class="bto-cadastrar" routerLink="/autor-cadastro">Cadastrar</button>
 <hr>
 <ul>
   <li *ngFor="let autor of autores">
      Código: {{ autor.codigo}} -  Nome: {{ autor.nome }}
-    <button (click)="excluir(autor)">Excluir</button>
+    <button (click)="confirm(autor)">Excluir</button>
     <button (click)="editar(autor)">Editar</button>
   </li>
 </ul>

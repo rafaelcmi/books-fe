@@ -4,8 +4,7 @@
   <form [formGroup]="autorForm" (ngSubmit)="salvarAutor()">
 
     <div *ngIf="autorId">
-      <label for="codigo">Codigo:</label>
-      <input type="text" id="codigo" formControlName="codigo" required>
+      <label for="codigo">Codigo: {{ autorId }}</label>
     </div>
 
     <div>

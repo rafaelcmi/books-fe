@@ -15,9 +15,11 @@ const routes: Routes = [
   { path: 'livro-cadastro/:id', component: LivroCadastroComponent },
 
   { path: 'autor-lista', component: AutorListaComponent },
+  { path: 'autor-cadastro', component: AutorCadastroComponent },
   { path: 'autor-cadastro/:id', component: AutorCadastroComponent },
 
   { path: 'assunto-lista', component: AssuntoListaComponent },
+  { path: 'assunto-cadastro', component: AssuntoCadastroComponent },
   { path: 'assunto-cadastro/:id', component: AssuntoCadastroComponent },
   { path: 'report-lista', component: ReportListaComponent },
 ];

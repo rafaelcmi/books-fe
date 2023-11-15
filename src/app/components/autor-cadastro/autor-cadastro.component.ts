@@ -22,7 +22,7 @@ export class AutorCadastroComponent implements OnInit {
 
 
     if (this.route.snapshot.paramMap) {
-      if (this.route.snapshot.paramMap.get('id') != "new") {
+      if (this.route.snapshot.paramMap.get('id')) {
         this.autorId = this.route.snapshot.paramMap.get('id');
         this.recuperarAutor(this.autorId);
       }
@@ -56,12 +56,12 @@ export class AutorCadastroComponent implements OnInit {
       if (autor.codigo) {
         this.service.atualizarAutor(autor.codigo, autor).subscribe((autorCadastrado) => {
           this.router.navigateByUrl("/autor-lista");
-          alert('Autor "' + autorCadastrado.nome + '" cadastrado com sucesso!');
+          alert('Autor "' + autorCadastrado.nome + '" atualizado com sucesso!');
         });
       } else {
         this.service.cadastrarAutor(autor).subscribe((autorAtualizado) => {
           this.router.navigateByUrl("/autor-lista");
-          alert('Autor "' + autorAtualizado.nome + '" atualizado com sucesso!');
+          alert('Autor "' + autorAtualizado.nome + '" cadastrado com sucesso!');
         });
       }
     }

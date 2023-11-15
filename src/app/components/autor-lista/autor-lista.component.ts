@@ -25,13 +25,17 @@ export class AutorListaComponent implements OnInit {
     });
   }
 
-  excluir(autor: Autor) {
-    if (autor.codigo) {
-      this.service.deletarAutor(autor.codigo).subscribe(() => {
-        this.loadAutores();
-      }, () => {
-        alert("Ocorreu um erro ao tentar remover o registro. Verifique se não existem dados vinculados a este autor!");
-      });
+  confirm(autor: Autor) {
+    const remove = window.confirm('Deseja realmente remover: ' + autor.nome + ' ?');
+
+    if (remove) {
+      if (autor.codigo) {
+        this.service.deletarAutor(autor.codigo).subscribe(() => {
+          this.loadAutores();
+        }, () => {
+          alert("Ocorreu um erro ao tentar remover o registro. Verifique se não existem dados vinculados a este autor!");
+        });
+      }
     }
   }
 

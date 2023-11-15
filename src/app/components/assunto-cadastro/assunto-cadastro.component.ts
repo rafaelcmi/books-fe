@@ -19,7 +19,7 @@ export class AssuntoCadastroComponent implements OnInit {
               private service: AssuntoService){
 
     if (this.route.snapshot.paramMap) {
-      if (this.route.snapshot.paramMap.get('id') != "new") {
+      if (this.route.snapshot.paramMap.get('id')) {
         this.assuntoId = this.route.snapshot.paramMap.get('id');
         this.recuperarAssunto(this.assuntoId);
       }
@@ -42,7 +42,6 @@ export class AssuntoCadastroComponent implements OnInit {
       this.service.obterAssunto(Number(id)).subscribe((assunto: Assunto) => {
         this.assuntoForm.get('codigo')?.setValue(assunto.codigo);
         this.assuntoForm.get('descricao')?.setValue(assunto.descricao);
-        //this.assuntoForm.get('codigo')?.disable();
       })
     }
   }
